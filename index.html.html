@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Infografía del Flujo de Registro Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #001f3f;
+            --dark-blue: #0c1a2b;
+            --blue: #0074D9;
+            --sky: #39cccc;
+            --orange: #FF851B;
+            --white: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--navy);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--white);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .infographic {
+            width: 100%;
+            max-width: 1400px;
+            min-height: auto;
+            background-color: var(--dark-blue);
+            border-radius: 24px;
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            margin: auto;
+        }
+
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+            gap: 20px;
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .header h1 {
+            font-size: clamp(24px, 5vw, 38px);
+            margin: 0;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--white), var(--sky));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header .school {
+            color: var(--orange);
+            font-size: clamp(16px, 3vw, 22px);
+            font-weight: bold;
+        }
+
+        .access-link {
+            background: var(--orange);
+            color: var(--navy);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: clamp(12px, 2vw, 16px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 133, 27, 0.3);
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .access-link:hover {
+            transform: scale(1.05);
+            background: var(--white);
+            color: var(--orange);
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        /* Steps Column */
+        .steps-column {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            gap: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .step-number {
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
+            background: var(--blue);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 900;
+            flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(0, 116, 217, 0.3);
+        }
+
+        .step-info h3 {
+            margin: 0 0 5px 0;
+            color: var(--sky);
+            font-size: clamp(16px, 4vw, 20px);
+        }
+
+        .step-info p {
+            margin: 0;
+            font-size: clamp(13px, 3vw, 15px);
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        /* UI Mockup Column */
+        .mockup-column {
+            flex: 1.2;
+            min-width: 320px;
+            background: #1a2635;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mockup-header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .iphone-mockup {
+            width: 100%;
+            max-width: 320px;
+            height: 600px;
+            background: #0f172a;
+            border-radius: 40px;
+            border: 8px solid #334155;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .ui-logo {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .ui-logo span {
+            color: #38bdf8;
+        }
+
+        .ui-title {
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .ui-section {
+            margin-bottom: 15px;
+        }
+
+        .ui-section-title {
+            font-size: 10px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .ui-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+
+        .ui-btn {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 4px;
+            padding: 5px;
+            font-size: 8px;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        .ui-btn.active {
+            border-color: #38bdf8;
+            color: #fff;
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .ui-input {
+            background: #1e293b;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 10px;
+            color: #475569;
+            margin-bottom: 5px;
+            border: 1px solid #334155;
+        }
+
+        .ui-category {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .ui-cat-btn {
+            background: #1e293b;
+            border-radius: 4px;
+            padding: 8px 4px;
+            font-size: 7px;
+            flex: 1;
+            text-align: center;
+            color: #64748b;
+            border: 1px solid #334155;
+        }
+
+        .ui-status {
+            display: flex;
+            gap: 10px;
+        }
+
+        .ui-status-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 10px;
+            text-align: center;
+            border: 1px solid;
+        }
+
+        .ok {
+            border-color: #4ade80;
+            color: #4ade80;
+            background: rgba(74, 222, 128, 0.05);
+        }
+
+        .nok {
+            border-color: #f87171;
+            color: #f87171;
+            background: rgba(248, 113, 113, 0.05);
+        }
+
+        .ui-submit {
+            background: #0369a1;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            gap: 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 900px) {
+            .infographic {
+                padding: 25px;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header div {
+                text-align: center !important;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="infographic">
+        <div class="header">
+            <div class="header-info">
+                <h1>Flujo de Registro Digital</h1>
+                <div class="school">Innova Schools - Ojo de Agua</div>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://bitacorasinnnovaojoagua.web.app/" target="_blank" class="access-link">
+                    ACCEDER AL SISTEMA: bitacorasinnnovaojoagua.web.app
+                </a>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-size: 12px; opacity: 0.5;">DOCUMENTACIÓN TÉCNICA</div>
+                <div style="font-size: 16px; font-weight: bold; color: var(--sky);">V1.0 - 2026</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Left Side: Steps -->
+            <div class="steps-column">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-info">
+                        <h3>Ubicación</h3>
+                        <p>Seleccionar <span class="highlight">Grado y Grupo</span> en la cuadrícula académica.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-info">
+                        <h3>Alumno</h3>
+                        <p>Ingresar <span class="highlight">ID Estudiante</span> y nombre completo.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-info">
+                        <h3>Activo</h3>
+                        <p>Definir <span class="highlight">Categoría</span> e ingresar número de serie.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-info">
+                        <h3>Estado</h3>
+                        <p>Reportar integridad física: <span class="highlight">Todo OK</span> o con Daño.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-info">
+                        <h3>Sincronizar</h3>
+                        <p>Enviar registro directamente a la <span class="highlight">Nube</span> institucional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: UI Mockup -->
+            <div class="mockup-column">
+                <div class="mockup-header">Interfaz de Usuario (Vista Móvil)</div>
+                <div class="iphone-mockup">
+                    <div class="ui-logo">INNOVA <span>SCHOOLS</span></div>
+                    <div
+                        style="text-align: center; color: #f59e0b; font-size: 8px; font-weight: bold; margin-bottom: 10px;">
+                        OJO DE AGUA</div>
+                    <div class="ui-title">Registro de Equipos</div>
+                    <div class="ui-section">
+                        <div class="ui-section-title">I. Ubicación Académica</div>
+                        <div class="ui-grid">
+                            <div class="ui-btn">1A</div>
+                            <div class="ui-btn">1B</div>
+                            <div class="ui-btn">1C</div>
+                            <div class="ui-btn active">1D</div>
+                            <div class="ui-btn">2A</div>
+                            <div class="ui-btn">2B</div>
+                            <div class="ui-btn">2C</div>
+                            <div class="ui-btn">2D</div>
+                            <div class="ui-btn">3A</div>
+                            <div class="ui-btn">3B</div>
+                            <div class="ui-btn">3C</div>
+                            <div class="ui-btn">3D</div>
+                        </div>
+                    </div>
+                    <div class="ui-section">
+                        <div class="ui-input">ID Estudiante</div>
+                        <div class="ui-input">Nombre y Apellidos</div>
+                    </div>
+                    <div class="ui-section">
+                        <div class="ui-section-title">II. Datos del Activo</div>
+                        <div class="ui-category">
+                            <div class="ui-cat-btn">CHROMEBOOK</div>
+                            <div class="ui-cat-btn active" style="border-color:#38bdf8; color:#fff;">LAPTOP WIN</div>
+                            <div class="ui-cat-btn">IPAD</div>
+                        </div>
+                        <div class="ui-input">S/N del dispositivo</div>
+                    </div>
+                    <div class="ui-section">
+                        <div class="ui-section-title">III. Estado de Entrega</div>
+                        <div class="ui-status">
+                            <div class="ui-status-btn ok">✓ Todo OK</div>
+                            <div class="ui-status-btn nok">▲ Tiene Daño</div>
+                        </div>
+                    </div>
+                    <div class="ui-submit">Enviar Registro a la Nube ✓</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>SISTEMA DE GESTIÓN DE ACTIVOS TI</div>
+            <div>&copy; 2026 INNOVA SCHOOLS OJO DE AGUA</div>
+        </div>
+    </div>
+</body>
+
+</html>
